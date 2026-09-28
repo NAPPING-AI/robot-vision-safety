@@ -1,0 +1,1 @@
+rsync -avz unitree@192.168.123.164:~/unitree_sdk2_python/ .
