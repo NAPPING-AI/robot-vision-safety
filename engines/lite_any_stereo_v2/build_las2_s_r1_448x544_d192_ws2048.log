@@ -1,0 +1,453 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v8502] # /usr/src/tensorrt/bin/trtexec --onnx=las2_s_r1_448x544_d192_opset16.onnx --saveEngine=las2_s_r1_448x544_d192_opset16_fp16.engine --fp16 --memPoolSize=workspace:2048 --minTiming=1 --avgTiming=8 --timingCacheFile=las2_s_r1_448x544_d192_ws2048.cache --buildOnly
+[08/24/2026-12:12:06] [I] === Model Options ===
+[08/24/2026-12:12:06] [I] Format: ONNX
+[08/24/2026-12:12:06] [I] Model: las2_s_r1_448x544_d192_opset16.onnx
+[08/24/2026-12:12:06] [I] Output:
+[08/24/2026-12:12:06] [I] === Build Options ===
+[08/24/2026-12:12:06] [I] Max batch: explicit batch
+[08/24/2026-12:12:06] [I] Memory Pools: workspace: 2048 MiB, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default
+[08/24/2026-12:12:06] [I] minTiming: 1
+[08/24/2026-12:12:06] [I] avgTiming: 8
+[08/24/2026-12:12:06] [I] Precision: FP32+FP16
+[08/24/2026-12:12:06] [I] LayerPrecisions: 
+[08/24/2026-12:12:06] [I] Calibration: 
+[08/24/2026-12:12:06] [I] Refit: Disabled
+[08/24/2026-12:12:06] [I] Sparsity: Disabled
+[08/24/2026-12:12:06] [I] Safe mode: Disabled
+[08/24/2026-12:12:06] [I] DirectIO mode: Disabled
+[08/24/2026-12:12:06] [I] Restricted mode: Disabled
+[08/24/2026-12:12:06] [I] Build only: Enabled
+[08/24/2026-12:12:06] [I] Save engine: las2_s_r1_448x544_d192_opset16_fp16.engine
+[08/24/2026-12:12:06] [I] Load engine: 
+[08/24/2026-12:12:06] [I] Profiling verbosity: 0
+[08/24/2026-12:12:06] [I] Tactic sources: Using default tactic sources
+[08/24/2026-12:12:06] [I] timingCacheMode: global
+[08/24/2026-12:12:06] [I] timingCacheFile: las2_s_r1_448x544_d192_ws2048.cache
+[08/24/2026-12:12:06] [I] Heuristic: Disabled
+[08/24/2026-12:12:06] [I] Preview Features: Use default preview flags.
+[08/24/2026-12:12:06] [I] Input(s)s format: fp32:CHW
+[08/24/2026-12:12:06] [I] Output(s)s format: fp32:CHW
+[08/24/2026-12:12:06] [I] Input build shapes: model
+[08/24/2026-12:12:06] [I] Input calibration shapes: model
+[08/24/2026-12:12:06] [I] === System Options ===
+[08/24/2026-12:12:06] [I] Device: 0
+[08/24/2026-12:12:06] [I] DLACore: 
+[08/24/2026-12:12:06] [I] Plugins:
+[08/24/2026-12:12:06] [I] === Inference Options ===
+[08/24/2026-12:12:06] [I] Batch: Explicit
+[08/24/2026-12:12:06] [I] Input inference shapes: model
+[08/24/2026-12:12:06] [I] Iterations: 10
+[08/24/2026-12:12:06] [I] Duration: 3s (+ 200ms warm up)
+[08/24/2026-12:12:06] [I] Sleep time: 0ms
+[08/24/2026-12:12:06] [I] Idle time: 0ms
+[08/24/2026-12:12:06] [I] Streams: 1
+[08/24/2026-12:12:06] [I] ExposeDMA: Disabled
+[08/24/2026-12:12:06] [I] Data transfers: Enabled
+[08/24/2026-12:12:06] [I] Spin-wait: Disabled
+[08/24/2026-12:12:06] [I] Multithreading: Disabled
+[08/24/2026-12:12:06] [I] CUDA Graph: Disabled
+[08/24/2026-12:12:06] [I] Separate profiling: Disabled
+[08/24/2026-12:12:06] [I] Time Deserialize: Disabled
+[08/24/2026-12:12:06] [I] Time Refit: Disabled
+[08/24/2026-12:12:06] [I] NVTX verbosity: 0
+[08/24/2026-12:12:06] [I] Persistent Cache Ratio: 0
+[08/24/2026-12:12:06] [I] Inputs:
+[08/24/2026-12:12:06] [I] === Reporting Options ===
+[08/24/2026-12:12:06] [I] Verbose: Disabled
+[08/24/2026-12:12:06] [I] Averages: 10 inferences
+[08/24/2026-12:12:06] [I] Percentiles: 90,95,99
+[08/24/2026-12:12:06] [I] Dump refittable layers:Disabled
+[08/24/2026-12:12:06] [I] Dump output: Disabled
+[08/24/2026-12:12:06] [I] Profile: Disabled
+[08/24/2026-12:12:06] [I] Export timing to JSON file: 
+[08/24/2026-12:12:06] [I] Export output to JSON file: 
+[08/24/2026-12:12:06] [I] Export profile to JSON file: 
+[08/24/2026-12:12:06] [I] 
+[08/24/2026-12:12:06] [I] === Device Information ===
+[08/24/2026-12:12:06] [I] Selected Device: Orin
+[08/24/2026-12:12:06] [I] Compute Capability: 8.7
+[08/24/2026-12:12:06] [I] SMs: 8
+[08/24/2026-12:12:06] [I] Compute Clock Rate: 0.918 GHz
+[08/24/2026-12:12:06] [I] Device Global Memory: 15388 MiB
+[08/24/2026-12:12:06] [I] Shared Memory per SM: 164 KiB
+[08/24/2026-12:12:06] [I] Memory Bus Width: 64 bits (ECC disabled)
+[08/24/2026-12:12:06] [I] Memory Clock Rate: 0.918 GHz
+[08/24/2026-12:12:06] [I] 
+[08/24/2026-12:12:06] [I] TensorRT version: 8.5.2
+[08/24/2026-12:12:06] [I] [TRT] [MemUsageChange] Init CUDA: CPU +220, GPU +0, now: CPU 249, GPU 6263 (MiB)
+[08/24/2026-12:12:08] [I] [TRT] [MemUsageChange] Init builder kernel library: CPU +302, GPU +431, now: CPU 574, GPU 6715 (MiB)
+[08/24/2026-12:12:08] [I] Start parsing network model
+[08/24/2026-12:12:08] [I] [TRT] ----------------------------------------------------------------
+[08/24/2026-12:12:08] [I] [TRT] Input filename:   las2_s_r1_448x544_d192_opset16.onnx
+[08/24/2026-12:12:08] [I] [TRT] ONNX IR version:  0.0.8
+[08/24/2026-12:12:08] [I] [TRT] Opset version:    16
+[08/24/2026-12:12:08] [I] [TRT] Producer name:    pytorch
+[08/24/2026-12:12:08] [I] [TRT] Producer version: 2.6.0
+[08/24/2026-12:12:08] [I] [TRT] Domain:           
+[08/24/2026-12:12:08] [I] [TRT] Model version:    0
+[08/24/2026-12:12:08] [I] [TRT] Doc string:       
+[08/24/2026-12:12:08] [I] [TRT] ----------------------------------------------------------------
+[08/24/2026-12:12:08] [W] [TRT] onnx2trt_utils.cpp:375: Your ONNX model has been generated with INT64 weights, while TensorRT does not natively support INT64. Attempting to cast down to INT32.
+[08/24/2026-12:12:08] [W] [TRT] onnx2trt_utils.cpp:403: One or more weights outside the range of INT32 was clamped
+[08/24/2026-12:12:10] [I] Finish parsing network model
+[08/24/2026-12:12:10] [W] Could not read timing cache from: las2_s_r1_448x544_d192_ws2048.cache. A new timing cache will be generated and written.
+[08/24/2026-12:12:11] [I] [TRT] ---------- Layers Running on DLA ----------
+[08/24/2026-12:12:11] [I] [TRT] ---------- Layers Running on GPU ----------
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONSTANT: /model/Constant_1_output_0
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONSTANT: /model/Constant_1_output_0_clone_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONSTANT: /model/Constant_2_output_0
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONSTANT: /model/Constant_2_output_0_clone_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(PWN(PWN(/model/Constant_output_0 + (Unnamed Layer* 1) [Shuffle], /model/Div), /model/Sub), /model/Div_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(PWN(PWN(/model/Constant_output_0_clone_1 + (Unnamed Layer* 7) [Shuffle], /model/Div_2), /model/Sub_1), /model/Div_3)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/patch_embed/proj/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/stem_2/stem_2.0/block/block.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/patch_embed/proj_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/stem_2/stem_2.0/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/stem_2/stem_2.1/block/block.0/Conv + /model/stem_2/stem_2.1/block/block.2/Relu
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0 + (Unnamed Layer* 18) [Shuffle], /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Div), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0 + (Unnamed Layer* 22) [Shuffle] + /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Add), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0 + (Unnamed Layer* 26) [Shuffle] + /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_13 + (Unnamed Layer* 244) [Shuffle], /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_13 + (Unnamed Layer* 247) [Shuffle] + /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_13 + (Unnamed Layer* 250) [Shuffle] + /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.3/Conv + /model/fnet/backbone/stages_0/blocks/blocks.0/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_0/blocks/blocks.0_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/downsample/reduction/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/downsample/reduction_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.0/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_1 + (Unnamed Layer* 36) [Shuffle], /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2/Div), /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_1 + (Unnamed Layer* 39) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2/Add), /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_1 + (Unnamed Layer* 42) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_14 + (Unnamed Layer* 260) [Shuffle], /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_14 + (Unnamed Layer* 263) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_14 + (Unnamed Layer* 266) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.3/Conv + /model/fnet/backbone/stages_1/blocks/blocks.0/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.0/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_1/blocks/blocks.0_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_2 + (Unnamed Layer* 51) [Shuffle], /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2/Div), /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_2 + (Unnamed Layer* 54) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2/Add), /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_2 + (Unnamed Layer* 57) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_15 + (Unnamed Layer* 275) [Shuffle], /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_15 + (Unnamed Layer* 278) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_15 + (Unnamed Layer* 281) [Shuffle] + /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.3/Conv + /model/fnet/backbone/stages_1/blocks/blocks.1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_1/blocks/blocks.1/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_1/blocks/blocks.1_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/downsample/reduction/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/downsample/reduction_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.0/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_3 + (Unnamed Layer* 67) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_3 + (Unnamed Layer* 70) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_3 + (Unnamed Layer* 73) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_16 + (Unnamed Layer* 291) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_16 + (Unnamed Layer* 294) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_16 + (Unnamed Layer* 297) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.0/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.0/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.0_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.1/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_4 + (Unnamed Layer* 82) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_4 + (Unnamed Layer* 85) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_4 + (Unnamed Layer* 88) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_17 + (Unnamed Layer* 306) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_17 + (Unnamed Layer* 309) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_17 + (Unnamed Layer* 312) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.1/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.1_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.2/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_5 + (Unnamed Layer* 97) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_5 + (Unnamed Layer* 100) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_5 + (Unnamed Layer* 103) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_18 + (Unnamed Layer* 321) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_18 + (Unnamed Layer* 324) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_18 + (Unnamed Layer* 327) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.2/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.2/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.2_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.3/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_6 + (Unnamed Layer* 112) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_6 + (Unnamed Layer* 115) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_6 + (Unnamed Layer* 118) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_19 + (Unnamed Layer* 336) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_19 + (Unnamed Layer* 339) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_19 + (Unnamed Layer* 342) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.3/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.3/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.3_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.4/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_7 + (Unnamed Layer* 127) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_7 + (Unnamed Layer* 130) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_7 + (Unnamed Layer* 133) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_20 + (Unnamed Layer* 351) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_20 + (Unnamed Layer* 354) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_20 + (Unnamed Layer* 357) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.4/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.4/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.4_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.5/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_8 + (Unnamed Layer* 142) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_8 + (Unnamed Layer* 145) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_8 + (Unnamed Layer* 148) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_21 + (Unnamed Layer* 366) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_21 + (Unnamed Layer* 369) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_21 + (Unnamed Layer* 372) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.5/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.5/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.5_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.6/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_9 + (Unnamed Layer* 157) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_9 + (Unnamed Layer* 160) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_9 + (Unnamed Layer* 163) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_22 + (Unnamed Layer* 381) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_22 + (Unnamed Layer* 384) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_22 + (Unnamed Layer* 387) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.6/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.6/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.6_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_10 + (Unnamed Layer* 172) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2/Div), /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_10 + (Unnamed Layer* 175) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2/Add), /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_10 + (Unnamed Layer* 178) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_23 + (Unnamed Layer* 396) [Shuffle], /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_23 + (Unnamed Layer* 399) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_23 + (Unnamed Layer* 402) [Shuffle] + /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.3/Conv + /model/fnet/backbone/stages_2/blocks/blocks.7/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_2/blocks/blocks.7/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_2/blocks/blocks.7_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/downsample/reduction/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/downsample/reduction_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.0/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_11 + (Unnamed Layer* 188) [Shuffle], /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2/Div), /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_11 + (Unnamed Layer* 191) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2/Add), /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_11 + (Unnamed Layer* 194) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_24 + (Unnamed Layer* 412) [Shuffle], /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_24 + (Unnamed Layer* 415) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_24 + (Unnamed Layer* 418) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.3/Conv + /model/fnet/backbone/stages_3/blocks/blocks.0/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.0/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_3/blocks/blocks.0_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing/partial_conv3_1/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_3/blocks/blocks.1/spatial_mixing_1/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_12 + (Unnamed Layer* 203) [Shuffle], /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2/Div), /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_12 + (Unnamed Layer* 206) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2/Add), /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_12 + (Unnamed Layer* 209) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.0_1/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_25 + (Unnamed Layer* 427) [Shuffle], /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2_1/Div), /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2_1/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_25 + (Unnamed Layer* 430) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2_1/Add), /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2_1/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_25 + (Unnamed Layer* 433) [Shuffle] + /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.2_1/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.3/Conv + /model/fnet/backbone/stages_3/blocks/blocks.1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/backbone/stages_3/blocks/blocks.1/mlp/mlp.3_1/Conv + /model/fnet/backbone/stages_3/blocks/blocks.1_1/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer4/deconv/block/block.0/ConvTranspose + /model/fnet/fpn_layer4/deconv/block/block.1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer4/deconv/block/block.0_1/ConvTranspose + /model/fnet/fpn_layer4/deconv/block/block.1_1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer4/deconv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer4/deconv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_2/blocks/blocks.7_1/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer4/conv/block/block.0/Conv + PWN(/model/fnet/fpn_layer4/conv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer4/conv/block/block.0_1/Conv + PWN(/model/fnet/fpn_layer4/conv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer3/deconv/block/block.0/ConvTranspose + /model/fnet/fpn_layer3/deconv/block/block.1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer3/deconv/block/block.0_1/ConvTranspose + /model/fnet/fpn_layer3/deconv/block/block.1_1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv0_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv1_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv2_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer3/deconv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer3/deconv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv0_2/Conv + /model/cost_agg/att4/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_1/blocks/blocks.1_1/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer3/conv/block/block.0/Conv + PWN(/model/fnet/fpn_layer3/conv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv1_2/Conv + /model/cost_agg/att4/Add_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer3/conv/block/block.0_1/Conv + PWN(/model/fnet/fpn_layer3/conv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv2_2/Conv + /model/cost_agg/att4/Add_2
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer2/deconv/block/block.0/ConvTranspose + /model/fnet/fpn_layer2/deconv/block/block.1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att4/conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/fnet/fpn_layer2/deconv/block/block.0_1/ConvTranspose + /model/fnet/fpn_layer2/deconv/block/block.1_1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv0_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv1_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv2_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer2/deconv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/fnet/fpn_layer2/deconv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv0_2/Conv + /model/cost_agg/att2/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/fnet/backbone/stages_0/blocks/blocks.0_1/Add_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer2/conv/block/block.0/Conv + PWN(/model/fnet/fpn_layer2/conv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv1_2/Conv + /model/cost_agg/att2/Add_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/fpn_layer2/conv/block/block.0_1/Conv + PWN(/model/fnet/fpn_layer2/conv/block/block.2_1/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv2_2/Conv + /model/cost_agg/att2/Add_2
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SLICE: /model/fnet/out_conv/block/block.0/Pad
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att2/conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SLICE: /model/fnet/out_conv/block/block.0_1/Pad
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/out_conv/block/block.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/fnet/out_conv/block/block.0_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] PLUGIN_V2: /model/fnet/out_conv/block/block.1/InstanceNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] PLUGIN_V2: /model/fnet/out_conv/block/block.1_1/InstanceNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/refine_1/refine_1.0/block/block.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SLICE: /model/Pad
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SLICE: /model/Expand
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv0_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv1_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv2_1/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] PLUGIN_V2: /model/refine_1/refine_1.0/block/block.1/InstanceNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/refine_1/refine_1.0/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_53
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_54
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_55
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_56
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_57
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_58
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_59
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_60
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_61
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_62
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_63
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_64
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_65
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_66
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_67
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_68
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_69
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_70
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_71
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_72
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_73
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_74
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_75
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_76
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_77
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_78
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_79
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_80
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_81
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_82
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_83
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_84
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_85
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_86
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_87
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_88
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_89
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_90
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_91
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_92
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_93
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_94
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_95
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_96
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_97
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_98
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_99
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Unsqueeze_100
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv0_2/Conv + /model/cost_agg/att0/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/refine_1/refine_1.1/block/block.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv1_2/Conv + /model/cost_agg/att0/Add_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] PLUGIN_V2: /model/refine_1/refine_1.1/block/block.1/InstanceNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SLICE: /model/Slice_49
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv2_2/Conv + /model/cost_agg/att0/Add_2
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/refine_1/refine_1.1/block/block.2/Relu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SHUFFLE: /model/Transpose_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/att0/conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/refine_2/deconv/block/block.0/ConvTranspose + /model/refine_2/deconv/block/block.1/BatchNormalization
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] ELEMENTWISE: /model/Mul_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] REDUCE: /model/ReduceMean
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] POINTWISE: PWN(/model/refine_2/deconv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv0/conv0.0/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/refine_2/conv/block/block.0/Conv + PWN(/model/refine_2/conv/block/block.2/LeakyRelu)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv0/conv0.0/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv0/conv0.0/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv0/conv0.0/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_26 + (Unnamed Layer* 575) [Shuffle], /model/cost_agg/conv0/conv0.0/block/mlp/mlp.2/Div), /model/cost_agg/conv0/conv0.0/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_26 + (Unnamed Layer* 578) [Shuffle] + /model/cost_agg/conv0/conv0.0/block/mlp/mlp.2/Add), /model/cost_agg/conv0/conv0.0/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_26 + (Unnamed Layer* 581) [Shuffle] + /model/cost_agg/conv0/conv0.0/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/refine_3/block/block.0/ConvTranspose
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SOFTMAX: /model/Softmax_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv0/conv0.0/block/mlp/mlp.3/Conv + /model/cost_agg/conv0/conv0.0/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] ELEMENTWISE: /model/cost_agg/att0/Mul
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv1/proj/proj.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir1/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv1/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/redir1/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/redir1/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv1/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv1/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir1/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_34 + (Unnamed Layer* 739) [Shuffle], /model/cost_agg/redir1/block/mlp/mlp.2/Div), /model/cost_agg/redir1/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_34 + (Unnamed Layer* 742) [Shuffle] + /model/cost_agg/redir1/block/mlp/mlp.2/Add), /model/cost_agg/redir1/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_34 + (Unnamed Layer* 745) [Shuffle] + /model/cost_agg/redir1/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv1/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_27 + (Unnamed Layer* 603) [Shuffle], /model/cost_agg/conv1/block/mlp/mlp.2/Div), /model/cost_agg/conv1/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_27 + (Unnamed Layer* 606) [Shuffle] + /model/cost_agg/conv1/block/mlp/mlp.2/Add), /model/cost_agg/conv1/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_27 + (Unnamed Layer* 609) [Shuffle] + /model/cost_agg/conv1/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir1/block/mlp/mlp.3/Conv + /model/cost_agg/redir1/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv1/block/mlp/mlp.3/Conv + /model/cost_agg/conv1/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv2/conv2.0/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv2/conv2.0/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv2/conv2.0/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv2/conv2.0/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_28 + (Unnamed Layer* 618) [Shuffle], /model/cost_agg/conv2/conv2.0/block/mlp/mlp.2/Div), /model/cost_agg/conv2/conv2.0/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_28 + (Unnamed Layer* 621) [Shuffle] + /model/cost_agg/conv2/conv2.0/block/mlp/mlp.2/Add), /model/cost_agg/conv2/conv2.0/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_28 + (Unnamed Layer* 624) [Shuffle] + /model/cost_agg/conv2/conv2.0/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv2/conv2.0/block/mlp/mlp.3/Conv + /model/cost_agg/conv2/conv2.0/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] ELEMENTWISE: /model/cost_agg/att2/Mul
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv3/proj/proj.0/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir2/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv3/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/redir2/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/redir2/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv3/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv3/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir2/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_33 + (Unnamed Layer* 720) [Shuffle], /model/cost_agg/redir2/block/mlp/mlp.2/Div), /model/cost_agg/redir2/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_33 + (Unnamed Layer* 723) [Shuffle] + /model/cost_agg/redir2/block/mlp/mlp.2/Add), /model/cost_agg/redir2/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_33 + (Unnamed Layer* 726) [Shuffle] + /model/cost_agg/redir2/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv3/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_29 + (Unnamed Layer* 646) [Shuffle], /model/cost_agg/conv3/block/mlp/mlp.2/Div), /model/cost_agg/conv3/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_29 + (Unnamed Layer* 649) [Shuffle] + /model/cost_agg/conv3/block/mlp/mlp.2/Add), /model/cost_agg/conv3/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_29 + (Unnamed Layer* 652) [Shuffle] + /model/cost_agg/conv3/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/redir2/block/mlp/mlp.3/Conv + /model/cost_agg/redir2/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv3/block/mlp/mlp.3/Conv + /model/cost_agg/conv3/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.0/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.0/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.0/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.0/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_30 + (Unnamed Layer* 661) [Shuffle], /model/cost_agg/conv4/conv4.0/block/mlp/mlp.2/Div), /model/cost_agg/conv4/conv4.0/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_30 + (Unnamed Layer* 664) [Shuffle] + /model/cost_agg/conv4/conv4.0/block/mlp/mlp.2/Add), /model/cost_agg/conv4/conv4.0/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_30 + (Unnamed Layer* 667) [Shuffle] + /model/cost_agg/conv4/conv4.0/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.0/block/mlp/mlp.3/Conv + /model/cost_agg/conv4/conv4.0/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.1/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.1/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.1/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.1/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_31 + (Unnamed Layer* 676) [Shuffle], /model/cost_agg/conv4/conv4.1/block/mlp/mlp.2/Div), /model/cost_agg/conv4/conv4.1/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_31 + (Unnamed Layer* 679) [Shuffle] + /model/cost_agg/conv4/conv4.1/block/mlp/mlp.2/Add), /model/cost_agg/conv4/conv4.1/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_31 + (Unnamed Layer* 682) [Shuffle] + /model/cost_agg/conv4/conv4.1/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.1/block/mlp/mlp.3/Conv + /model/cost_agg/conv4/conv4.1/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.2/block/spatial_mixing/partial_conv3/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.2/block/spatial_mixing/partial_conv3/Conv_output_0 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] COPY: /model/cost_agg/conv4/conv4.2/block/spatial_mixing/Split_output_1 copy
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.2/block/mlp/mlp.0/Conv + PWN(PWN(PWN(PWN(PWN(/model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_output_0_clone_32 + (Unnamed Layer* 691) [Shuffle], /model/cost_agg/conv4/conv4.2/block/mlp/mlp.2/Div), /model/cost_agg/conv4/conv4.2/block/mlp/mlp.2/Erf), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_1_output_0_clone_32 + (Unnamed Layer* 694) [Shuffle] + /model/cost_agg/conv4/conv4.2/block/mlp/mlp.2/Add), /model/cost_agg/conv4/conv4.2/block/mlp/mlp.2/Mul), /model/fnet/backbone/stages_0/blocks/blocks.0/mlp/mlp.2/Constant_2_output_0_clone_32 + (Unnamed Layer* 697) [Shuffle] + /model/cost_agg/conv4/conv4.2/block/mlp/mlp.2/Mul_1)
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/cost_agg/conv4/conv4.2/block/mlp/mlp.3/Conv + /model/cost_agg/conv4/conv4.2/block/Add
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] ELEMENTWISE: /model/cost_agg/att4/Mul
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/cost_agg/conv5/conv5.0/ConvTranspose + /model/cost_agg/conv5/conv5.1/BatchNormalization + /model/cost_agg/Add + /model/cost_agg/Relu
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] DECONVOLUTION: /model/cost_agg/conv6/conv6.0/ConvTranspose + /model/cost_agg/conv6/conv6.1/BatchNormalization + /model/cost_agg/Add_1 + /model/cost_agg/Relu_1
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SOFTMAX: /model/Softmax
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SCALE: /model/Constant_317_output_0 + /model/Mul_2
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] REDUCE: /model/ReduceSum
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] SCALE: /model/Constant_318_output_0 + (Unnamed Layer* 776) [Shuffle] + /model/Mul_3
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] CONVOLUTION: /model/Conv
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] RESIZE: /model/Resize
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] ELEMENTWISE: /model/Mul_6
+[08/24/2026-12:12:11] [I] [TRT] [GpuLayer] REDUCE: /model/ReduceSum_1
+[08/24/2026-12:12:11] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 1242, GPU 7807 (MiB)
+[08/24/2026-12:12:11] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +9, now: CPU 1242, GPU 7816 (MiB)
+[08/24/2026-12:12:11] [I] [TRT] Global timing cache in use. Profiling results in this builder pass will be stored.
+[08/24/2026-12:23:57] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size will enable more tactics, please check verbose output for requested sizes.
+[08/24/2026-12:24:40] [I] [TRT] Total Activation Memory: 2689399296
+[08/24/2026-12:24:40] [I] [TRT] Detected 2 inputs and 1 output network tensors.
+[08/24/2026-12:24:41] [I] [TRT] Total Host Persistent Memory: 479488
+[08/24/2026-12:24:41] [I] [TRT] Total Device Persistent Memory: 623616
+[08/24/2026-12:24:41] [I] [TRT] Total Scratch Memory: 12777984
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 28 MiB, GPU 1711 MiB
+[08/24/2026-12:24:41] [I] [TRT] [BlockAssignment] Started assigning block shifts. This will take 302 steps to complete.
+[08/24/2026-12:24:41] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 70.5358ms to assign 17 blocks to 302 nodes requiring 189884416 bytes.
+[08/24/2026-12:24:41] [I] [TRT] Total Activation Memory: 189884416
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +5, now: CPU 1641, GPU 8656 (MiB)
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +7, now: CPU 1641, GPU 8663 (MiB)
+[08/24/2026-12:24:41] [W] [TRT] TensorRT encountered issues when converting weights between types and that could affect accuracy.
+[08/24/2026-12:24:41] [W] [TRT] If this is not the desired behavior, please modify the weights or retrain with regularization to adjust the magnitude of the weights.
+[08/24/2026-12:24:41] [W] [TRT] Check verbose logs for the list of affected weights.
+[08/24/2026-12:24:41] [W] [TRT] - 139 weights are affected by this issue: Detected subnormal FP16 values.
+[08/24/2026-12:24:41] [W] [TRT] - 18 weights are affected by this issue: Detected values less than smallest positive FP16 subnormal value and converted them to the FP16 minimum subnormalized value.
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in building engine: CPU +19, GPU +16, now: CPU 19, GPU 16 (MiB)
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1632, GPU 8578 (MiB)
+[08/24/2026-12:24:41] [I] Saved 487757 bytes of timing cache to las2_s_r1_448x544_d192_ws2048.cache
+[08/24/2026-12:24:41] [I] Engine built in 755.248 sec.
+[08/24/2026-12:24:41] [I] [TRT] Loaded engine size: 13 MiB
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 1622, GPU 8624 (MiB)
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +7, now: CPU 1622, GPU 8631 (MiB)
+[08/24/2026-12:24:41] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +12, now: CPU 0, GPU 12 (MiB)
+[08/24/2026-12:24:41] [I] Engine deserialized in 0.0623036 sec.
+[08/24/2026-12:24:41] [I] Skipped inference phase since --buildOnly is added.
+&&&& PASSED TensorRT.trtexec [TensorRT v8502] # /usr/src/tensorrt/bin/trtexec --onnx=las2_s_r1_448x544_d192_opset16.onnx --saveEngine=las2_s_r1_448x544_d192_opset16_fp16.engine --fp16 --memPoolSize=workspace:2048 --minTiming=1 --avgTiming=8 --timingCacheFile=las2_s_r1_448x544_d192_ws2048.cache --buildOnly
