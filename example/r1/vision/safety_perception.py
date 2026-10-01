@@ -20,6 +20,7 @@ from vision_utils import (
     calculate_depth_and_reliability,
     coordinate_grids,
     detect_obstacles,
+    local_obstacle_mask,
     load_rectification,
     local_obstacle_points,
     make_coverage_region,
@@ -34,6 +35,7 @@ class PerceptionFrame:
     depth: object
     reliable: object
     occupied: object
+    local_obstacle_mask: object
     obstacles: list[dict]
     coverage: float
     inference_ms: float
@@ -115,12 +117,20 @@ class StereoPerception:
             self._rectification,
             self._coverage_region
         )
+        local_mask = local_obstacle_mask(
+            depth,
+            reliable,
+            self._x_coordinates,
+            self._y_coordinates,
+            self._rectification,
+        )
         obstacle_points = local_obstacle_points(
             depth,
             reliable,
             self._x_coordinates,
             self._y_coordinates,
             self._rectification,
+            local_mask,
         )
         self._latest = PerceptionFrame(
             snapshot=PerceptionSnapshot(
@@ -131,6 +141,7 @@ class StereoPerception:
             depth=depth,
             reliable=reliable,
             occupied=occupied,
+            local_obstacle_mask=local_mask,
             obstacles=obstacles,
             coverage=coverage,
             inference_ms=inference_ms,

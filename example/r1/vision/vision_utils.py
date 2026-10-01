@@ -221,15 +221,15 @@ def detect_obstacles(
     return state, obstacles, coverage, occupied
 
 
-def local_obstacle_points(depth, reliable, x_coordinates, y_coordinates, rectification):
-    """Return downsampled ``(forward, left)`` obstacle points for local avoidance."""
+def local_obstacle_mask(depth, reliable, x_coordinates, y_coordinates, rectification):
+    """Return every depth pixel that contributes to local avoidance."""
     camera_x = (
         (x_coordinates - rectification.center_x) * depth / rectification.focal_x
     )
     camera_y = (
         (y_coordinates - rectification.center_y) * depth / rectification.focal_y
     )
-    obstacle = (
+    return (
         reliable
         & (camera_x >= -LOCAL_OBSTACLE_HALF_WIDTH)
         & (camera_x <= LOCAL_OBSTACLE_HALF_WIDTH)
@@ -238,6 +238,17 @@ def local_obstacle_points(depth, reliable, x_coordinates, y_coordinates, rectifi
         & (depth >= TEST_Z_MIN)
         & (depth <= LOCAL_OBSTACLE_MAX_DEPTH)
     )
+
+
+def local_obstacle_points(depth, reliable, x_coordinates, y_coordinates, rectification,
+                          obstacle_mask=None):
+    """Return downsampled ``(forward, left)`` points used by local avoidance."""
+    camera_x = (
+        (x_coordinates - rectification.center_x) * depth / rectification.focal_x
+    )
+    obstacle = local_obstacle_mask(
+        depth, reliable, x_coordinates, y_coordinates, rectification
+    ) if obstacle_mask is None else obstacle_mask
     if not np.any(obstacle):
         return np.empty((0, 2), dtype=np.float32)
 

@@ -125,21 +125,33 @@ def make_display(frame, now, decision):
     disparity_view = colorize_disparity(frame.disparity, frame.reliable)
     depth_view = colorize_depth(frame.depth, frame.reliable)
     rgb_view = frame.left_rectified.copy()
+
+    # Amber marks every pixel that becomes a local-planner obstacle point.
+    # Red is retained for the existing close-obstacle diagnostic volume.
+    amber = np.array((0, 165, 255), dtype=np.float32)
+    local_mask = frame.local_obstacle_mask
+    rgb_view[local_mask] = (
+        0.45 * rgb_view[local_mask] + 0.55 * amber
+    ).astype(np.uint8)
+    depth_view[local_mask] = (
+        0.45 * depth_view[local_mask] + 0.55 * amber
+    ).astype(np.uint8)
     depth_view[frame.occupied] = (0, 0, 255)
     for obstacle in frame.obstacles:
         x, y, width, height = obstacle["box"]
         cv2.rectangle(rgb_view, (x, y), (x + width, y + height), (0, 0, 255), 2)
         cv2.putText(rgb_view, f"{obstacle['distance']:.2f} m", (x, max(18, y - 6)),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-    put_label(rgb_view, "RECTIFIED LEFT")
+    put_label(rgb_view, "RECTIFIED LEFT  |  ORANGE=LOCAL AVOIDANCE")
     put_label(disparity_view, "DISPARITY")
-    put_label(depth_view, f"DEPTH 0-{MAX_RELIABLE_DEPTH:g} m")
+    put_label(depth_view, f"DEPTH  |  ORANGE=LOCAL  RED=CLOSE  0-{MAX_RELIABLE_DEPTH:g}m")
     views = np.hstack((rgb_view, disparity_view, depth_view))
     display = np.zeros((views.shape[0] + STATUS_HEIGHT, views.shape[1], 3), np.uint8)
     display[:views.shape[0]] = views
     status = (f"infer={frame.inference_ms:.0f}ms "
               f"age={(now - frame.snapshot.measurement_time) * 1000:.0f}ms "
-              f"skew={frame.pair_skew_s * 1000:.1f}ms coverage={frame.coverage * 100:.1f}%")
+              f"skew={frame.pair_skew_s * 1000:.1f}ms coverage={frame.coverage * 100:.1f}% "
+              f"local-points={len(frame.snapshot.obstacle_points)}")
     cv2.putText(display, status, (10, MODEL_HEIGHT - 12),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.48, (255, 255, 255), 2)
     color = (0, 0, 255) if decision.command.is_stop else (0, 255, 0)
