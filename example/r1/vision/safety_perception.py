@@ -1,3 +1,5 @@
+
+
 from __future__ import annotations
 
 import time
@@ -17,11 +19,12 @@ from config import (
 from safety_layer import PerceptionSnapshot, PerceptionState
 from tensorrt_utils import StereoEngine, prepare_image
 from vision_utils import (
+    above_ground_mask,
     calculate_depth_and_reliability,
     coordinate_grids,
     detect_obstacles,
-    local_obstacle_mask,
     load_rectification,
+    local_obstacle_mask,
     local_obstacle_points,
     make_coverage_region,
 )
@@ -40,6 +43,7 @@ class PerceptionFrame:
     coverage: float
     inference_ms: float
     pair_skew_s: float
+    ground_plane: tuple | None
 
 
 class StereoPerception:
@@ -109,20 +113,25 @@ class StereoPerception:
             self._y_coordinates,
             self._rectification.focal_times_baseline
         )
+        above_ground, ground_plane = above_ground_mask(
+            depth, reliable, self._x_coordinates, self._y_coordinates,
+            self._rectification
+        )
         state, obstacles, coverage, occupied = detect_obstacles(
             depth,
             reliable,
             self._x_coordinates,
             self._y_coordinates,
             self._rectification,
-            self._coverage_region
+            self._coverage_region,
+            above_ground
         )
         local_mask = local_obstacle_mask(
             depth,
-            reliable,
+            reliable & above_ground,
             self._x_coordinates,
             self._y_coordinates,
-            self._rectification,
+            self._rectification
         )
         obstacle_points = local_obstacle_points(
             depth,
@@ -130,12 +139,10 @@ class StereoPerception:
             self._x_coordinates,
             self._y_coordinates,
             self._rectification,
-            local_mask,
+            local_mask
         )
         self._latest = PerceptionFrame(
-            snapshot=PerceptionSnapshot(
-                PerceptionState(state), max(left_time, right_time), obstacle_points
-            ),
+            snapshot=PerceptionSnapshot(PerceptionState(state), max(left_time, right_time), obstacle_points),
             left_rectified=left_rectified,
             disparity=disparity,
             depth=depth,
@@ -145,7 +152,8 @@ class StereoPerception:
             obstacles=obstacles,
             coverage=coverage,
             inference_ms=inference_ms,
-            pair_skew_s=pair_skew_s
+            pair_skew_s=pair_skew_s,
+            ground_plane=ground_plane
         )
         return self._latest
 

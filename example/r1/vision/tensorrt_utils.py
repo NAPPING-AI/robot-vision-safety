@@ -37,9 +37,7 @@ class StereoEngine:
 
         required = {"left", "right", "disparity"}
         if not required.issubset(self.buffers):
-            raise RuntimeError(
-                f"Unexpected LAS2 engine bindings: {sorted(self.buffers)}"
-            )
+            raise RuntimeError(f"Unexpected LAS2 engine bindings: {sorted(self.buffers)}")
 
     def infer(self, left_tensor, right_tensor):
         left_host, left_device = self.buffers["left"]
@@ -64,7 +62,7 @@ class StereoEngine:
 
 
 def prepare_image(rectified_bgr):
-    """Convert BGR uint8 to LAS2 NCHW RGB float32 in the 0–255 range."""
+    """Convert BGR uint8 to LAS2 NCHW RGB float32 in the 0-255 range."""
     rgb = cv2.cvtColor(rectified_bgr, cv2.COLOR_BGR2RGB)
     rgb = rgb.astype(np.float32)
     return np.ascontiguousarray(rgb.transpose(2, 0, 1)[None])

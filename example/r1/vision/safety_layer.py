@@ -138,10 +138,7 @@ class FailClosedVelocityShield:
         candidates = [requested]
         for yaw_change in (-1.2, -0.7, 0.7, 1.2):
             direction = "LEFT" if yaw_change > 0.0 else "RIGHT"
-            candidates.append(VelocityCommand(
-                speed, 0.0, requested.yaw_rate + yaw_change,
-                f"AVOID {direction}",
-            ))
+            candidates.append(VelocityCommand(speed, 0.0, requested.yaw_rate + yaw_change, f"AVOID {direction}"))
         return candidates
 
     def _is_safe(self, command: VelocityCommand, points) -> bool:
@@ -165,11 +162,7 @@ class FailClosedVelocityShield:
         yaw_change = command.yaw_rate - requested.yaw_rate
         side_change = 0 if yaw_change == 0.0 else (1 if yaw_change > 0.0 else -1)
         side_penalty = 0.05 if self._avoidance_sign and side_change != self._avoidance_sign else 0.0
-        return (
-            abs(command.vx - requested.vx)
-            + 0.20 * abs(yaw_change)
-            + side_penalty
-        )
+        return abs(command.vx - requested.vx) + 0.20 * abs(yaw_change) + side_penalty
 
     def _stop(self, reason: str) -> SafetyDecision:
         return SafetyDecision(VelocityCommand.stop(), reason)

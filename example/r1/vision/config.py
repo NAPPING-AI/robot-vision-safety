@@ -33,10 +33,15 @@ VISION_DIR = Path(__file__).resolve().parents[0]
 CALIBRATION_PATH = VISION_DIR / "calibration/stereo_calibration.npz"
 HEAD_CAM_CALIBRATION_PATH = VISION_DIR / "calibration/head_camera_calibration.npz"
 
+# Floor-fit priors in rectified camera coordinates; check against camera height.
+GROUND_CAMERA_HEIGHT_RANGE = (0.8, 1.5)  # Perpendicular camera-to-floor distance, m.
+GROUND_MAX_TILT_DEG = 50  # Floor normal versus camera up (-y), allowing camera tilt.
+FLOOR_CLEARENCE = 0.05
+
 # Provisional obstacle-test volume in rectified left-camera coordinates.
 TEST_HALF_WIDTH = 0.35
 TEST_Y_MIN = -0.1
-TEST_Y_MAX = 1
+TEST_Y_MAX = 1.1
 TEST_Z_MIN = 0.05
 TEST_Z_MAX = 0.5
 

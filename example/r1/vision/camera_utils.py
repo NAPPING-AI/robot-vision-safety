@@ -45,6 +45,7 @@ class Camera:
         self.thread.start()
 
     def _read_frames(self):
+        """Record latest frame from the stream."""
         frame_bytes = self.width * self.height * 3
         while True:
             data = bytearray()
@@ -54,9 +55,7 @@ class Camera:
                     return
                 data.extend(chunk)
 
-            frame = np.frombuffer(data, np.uint8).reshape(
-                self.height, self.width, 3
-            ).copy()
+            frame = np.frombuffer(data, np.uint8).reshape(self.height, self.width, 3).copy()
             with self.lock:
                 self.sequence += 1
                 self.latest_frame = (self.sequence, time.monotonic(), frame)
