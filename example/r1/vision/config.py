@@ -46,7 +46,7 @@ TEST_Z_MIN = 0.05
 TEST_Z_MAX = 0.5
 
 # Local trajectory avoidance uses the same vertical hitbox band as the close
-# obstacle test, but looks farther ahead. Coordinates remain camera-relative:
+# obstacle test, but looks farther ahead. Coordinates are camera-relative:
 # forward is depth and left/right comes from the rectified image x-coordinate.
 LOCAL_OBSTACLE_HALF_WIDTH = 1.2
 LOCAL_OBSTACLE_MAX_DEPTH = 1.5
