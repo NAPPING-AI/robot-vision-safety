@@ -1,11 +1,10 @@
-
-
 from __future__ import annotations
 
 import time
 from dataclasses import dataclass
 
 import cv2
+import numpy as np
 import pycuda.driver as cuda
 from camera_utils import Camera
 from config import (
@@ -14,6 +13,7 @@ from config import (
     ENGINE_PATH,
     LEFT_PORT,
     MAX_PAIR_SKEW,
+    MIN_COVERAGE,
     RIGHT_PORT,
 )
 from safety_layer import PerceptionSnapshot, PerceptionState
@@ -22,7 +22,6 @@ from vision_utils import (
     above_ground_mask,
     calculate_depth_and_reliability,
     coordinate_grids,
-    detect_obstacles,
     load_rectification,
     local_obstacle_mask,
     local_obstacle_points,
@@ -37,9 +36,7 @@ class PerceptionFrame:
     disparity: object
     depth: object
     reliable: object
-    occupied: object
     local_obstacle_mask: object
-    obstacles: list[dict]
     coverage: float
     inference_ms: float
     pair_skew_s: float
@@ -117,15 +114,6 @@ class StereoPerception:
             depth, reliable, self._x_coordinates, self._y_coordinates,
             self._rectification
         )
-        state, obstacles, coverage, occupied = detect_obstacles(
-            depth,
-            reliable,
-            self._x_coordinates,
-            self._y_coordinates,
-            self._rectification,
-            self._coverage_region,
-            above_ground
-        )
         local_mask = local_obstacle_mask(
             depth,
             reliable & above_ground,
@@ -141,15 +129,22 @@ class StereoPerception:
             self._rectification,
             local_mask
         )
+        coverage = np.count_nonzero(reliable & self._coverage_region) / max(
+            1, np.count_nonzero(self._coverage_region)
+        )
+        if coverage < MIN_COVERAGE:
+            state = PerceptionState.UNKNOWN
+        elif len(obstacle_points):
+            state = PerceptionState.OBSTACLE
+        else:
+            state = PerceptionState.CLEAR
         self._latest = PerceptionFrame(
-            snapshot=PerceptionSnapshot(PerceptionState(state), max(left_time, right_time), obstacle_points),
+            snapshot=PerceptionSnapshot(state, min(left_time, right_time), obstacle_points),
             left_rectified=left_rectified,
             disparity=disparity,
             depth=depth,
             reliable=reliable,
-            occupied=occupied,
             local_obstacle_mask=local_mask,
-            obstacles=obstacles,
             coverage=coverage,
             inference_ms=inference_ms,
             pair_skew_s=pair_skew_s,

@@ -11,7 +11,6 @@ from safety_perception import StereoPerception
 from vision_utils import (
     STATUS_HEIGHT,
     colourise_depth,
-    colourise_disparity,
     draw_ground_wireframe,
     draw_status,
     put_label,
@@ -122,21 +121,11 @@ def make_display(frame, now, decision, rectification):
     local_mask = frame.local_obstacle_mask
 
     rgb_view[local_mask] = (0.45 * rgb_view[local_mask] + 0.55 * amber).astype(np.uint8)
-    depth_view[local_mask] = depth_view[local_mask].astype(np.uint8)
-    depth_view[frame.occupied] = (0, 0, 255)
-
-    # Highlight detected obstacles
-    for obstacle in frame.obstacles:
-        x, y, width, height = obstacle["box"]
-        cv2.rectangle(rgb_view, (x, y), (x + width, y + height), (0, 0, 255), 2)
-        cv2.putText(rgb_view, f"{obstacle['distance']:.2f} m", (x, max(18, y - 6)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-
-    # Add fitted ground to first view
-    draw_ground_wireframe(rgb_view, frame.ground_plane, rectification)
+    draw_ground_wireframe(rgb_view_2, frame.ground_plane, rectification)
 
     put_label(rgb_view, "RECTIFIED LEFT  |  ORANGE=LOCAL AVOIDANCE")
     put_label(rgb_view_2, "RECTIFIED LEFT  |  WIREFRAME=FITTED FLOOR")
-    put_label(depth_view, f"DEPTH  |  ORANGE=LOCAL  RED=CLOSE  0-{MAX_RELIABLE_DEPTH:g}m")
+    put_label(depth_view, f"DEPTH 0-{MAX_RELIABLE_DEPTH:g}m")
 
     views = np.hstack((rgb_view, rgb_view_2, depth_view))
     display = np.zeros((views.shape[0] + STATUS_HEIGHT, views.shape[1], 3), np.uint8)
@@ -165,11 +154,12 @@ def main():
     try:
         motion = MotionController(args.interface)
         perception.start()
-        print("M=arm, Space=disarm/stop, arrows=move, Q/Esc=quit")
-        print("Down is blocked; turns bypass obstacle checks in this demo.")
+        print("M/Space=stop/reset, arrows=move, Q/Esc=quit")
+        print("Down is blocked; turns require fresh vision and circular clearance.")
         while True:
             now = time.monotonic()
             perception.update(now)
+            now = time.monotonic()  # Include inference time in the freshness check.
             decision = shield.evaluate(policy.requested(now), perception.latest_snapshot, now)
             motion.apply(decision)
             frame = perception.latest_frame
@@ -177,8 +167,6 @@ def main():
                 show_status_overlay(last_display, f"SAFETY STOP: {decision.reason}")
             else:
                 last_display = make_display(frame, now, decision, perception.rectification)
-                if not decision.command.is_stop:
-                    last_display[-STATUS_HEIGHT:] = 0
                 cv2.imshow(DISPLAY_TITLE, last_display)
             if handle_key(cv2.waitKeyEx(1), shield, policy, time.monotonic()):
                 break
