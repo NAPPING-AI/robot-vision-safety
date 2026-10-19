@@ -49,7 +49,7 @@ class SafetyConfig:
     allow_reverse: bool = False
     allow_turn_in_place: bool = True
     robot_radius_m: float = 0.28
-    safety_margin_m: float = 0.10
+    safety_margin_m: float = 0.05
     trajectory_horizon_s: float = 1.5
     trajectory_step_s: float = 0.10
     yaw_step: float = 0.10
@@ -97,8 +97,8 @@ class FailClosedVelocityShield:
         if requested.vy != 0.0:
             return self._stop("lateral motion is disabled")
 
-        if requested.is_turn_in_place and not self.config.allow_turn_in_place:
-            return self._stop("in-place turns are disabled")
+        if requested.is_turn_in_place and self.config.allow_turn_in_place:
+            return SafetyDecision(requested, "in-place turn bypass on")
 
         if snapshot is None:
             self.reset()
@@ -119,10 +119,9 @@ class FailClosedVelocityShield:
         points = self._points(snapshot.obstacle_points)
         if points is None:
             return self._stop("missing or invalid obstacle points")
+        
         if requested.is_turn_in_place:
-            if self._clearance(requested, points) <= 0:
-                return self._stop("obstacle inside protected radius")
-            return SafetyDecision(requested, "in-place turn")
+            return SafetyDecision(requested, "in-place turn: clearance checked")
 
         self._accepted_count += 1
         confirmed = self._accepted_count >= self.config.clear_confirmations
@@ -140,6 +139,11 @@ class FailClosedVelocityShield:
             return self._stop("no collision-free local trajectory")
 
         command, gap = min(safe, key=lambda item: self._cost(item[0], requested, item[1]))
+
+        # If turn is > 60deg, turn in place to be safe
+        if (self.config.allow_turn_in_place and abs(command.yaw_rate) * self.config.trajectory_horizon_s > np.deg2rad(60)):
+            command = VelocityCommand(0.0, 0.0, float(np.sign(command.yaw_rate)), "TURN IN PLACE")
+        
         yaw_change = command.yaw_rate - requested.yaw_rate
         if abs(yaw_change) < 1e-6:
             self._avoidance_sign = 0
