@@ -1,5 +1,28 @@
 # Install Unitree SDK2 Python on the NX
 
+## 0. Connect to the backpack 
+
+On your computer, start a proxy to give the backpack internet connection. SSH into it afterwards.
+
+```bash
+sudo apt install tinyproxy
+sudo systemctl enable --now tinyproxy
+
+ssh -X \
+    -o ExitOnForwardFailure=yes \
+    -R 127.0.0.1:18080:127.0.0.1:8888 \
+    unitree@192.168.123.164
+```
+
+Once in the backpack, run:
+
+```bash
+export http_proxy=http://127.0.0.1:18080
+export https_proxy=http://127.0.0.1:18080
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$https_proxy
+```
+
 ## 1. Download Unitree SDK2 Python
 
 ```bash
