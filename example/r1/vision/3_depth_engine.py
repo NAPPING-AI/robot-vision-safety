@@ -58,7 +58,6 @@ def main():
 
         print(f"Rectified focal length: {rectification.focal_x:.3f} px")
         print(f"Baseline: {rectification.baseline:.6f} m")
-        print("Black depth pixels are UNKNOWN (not free space!). Press q or Esc to quit.")
 
         while True:
             left_data = left_camera.latest()

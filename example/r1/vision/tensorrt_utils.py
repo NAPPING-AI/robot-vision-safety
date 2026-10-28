@@ -27,7 +27,10 @@ class StereoEngine:
         for index in range(self.engine.num_bindings):
             name = self.engine.get_binding_name(index)
             shape = tuple(self.engine.get_binding_shape(index))
-            dtype = trt.nptype(self.engine.get_binding_dtype(index))
+            try:
+                dtype = trt.nptype(self.engine.get_binding_dtype(index))
+            except AttributeError:
+                dtype = bool
 
             host = np.empty(shape, dtype=dtype)
             device = cuda.mem_alloc(host.nbytes)

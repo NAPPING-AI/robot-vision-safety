@@ -34,6 +34,9 @@ class VelocityCommand:
     def stop(cls, label: str = "STOP") -> VelocityCommand:
         return cls(label=label)
 
+    def __eq__(self, other: VelocityCommand):
+        return self.vx == other.vx and self.vy == other.vy and self.yaw_rate == other.yaw_rate
+
 
 @dataclass(frozen=True)
 class PerceptionSnapshot:
@@ -42,6 +45,23 @@ class PerceptionSnapshot:
     obstacle_points: object = None
 
 
+# @dataclass(frozen=True)
+# class SafetyConfig:
+#     max_measurement_age: float
+#     clear_confirmations: int = 1
+#     allow_reverse: bool = False
+#     allow_turn_in_place: bool = True
+#     robot_radius_m: float = 0.28
+#     safety_margin_m: float = 0.00
+#     trajectory_horizon_s: float = 1.5
+#     trajectory_step_s: float = 0.10
+#     yaw_step: float = 0.10
+#     max_yaw_change: float = 1.20
+#     turn_weight: float = 0.20
+#     clearance_weight: float = 0.30
+#     preferred_clearance_m: float = 0.25
+#     side_change_penalty: float = 0.001
+
 @dataclass(frozen=True)
 class SafetyConfig:
     max_measurement_age: float
@@ -49,16 +69,15 @@ class SafetyConfig:
     allow_reverse: bool = False
     allow_turn_in_place: bool = True
     robot_radius_m: float = 0.28
-    safety_margin_m: float = 0.05
+    safety_margin_m: float = 0
     trajectory_horizon_s: float = 1.5
     trajectory_step_s: float = 0.10
     yaw_step: float = 0.10
     max_yaw_change: float = 1.20
     turn_weight: float = 0.20
-    clearance_weight: float = 0.04
-    preferred_clearance_m: float = 0.25
+    clearance_weight: float = 0.30
+    preferred_clearance_m: float = 1.5
     side_change_penalty: float = 0.001
-
 
 @dataclass(frozen=True)
 class SafetyDecision:
@@ -165,7 +184,7 @@ class FailClosedVelocityShield:
         return points
 
     def _candidates(self, requested: VelocityCommand):
-        speed = requested.vx * 0.75
+        speed = requested.vx #* 0.75
         candidates = [requested]
         amounts = np.arange(self.config.yaw_step, self.config.max_yaw_change, self.config.yaw_step)
         amounts = np.unique(np.r_[amounts, self.config.max_yaw_change])

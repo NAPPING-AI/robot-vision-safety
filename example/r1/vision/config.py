@@ -28,12 +28,19 @@ MAX_DISPARITY = 136
 MAX_RELIABLE_DEPTH = 5
 MAX_PHOTOMETRIC_ERROR = 45
 
+# YOLO Config
+YOLO_CKPT_PATH = Path(__file__).resolve().parents[3] / "engines" / "yolo" / "yolo26n.pt"
+# YOLO_CKPT_PATH = Path(__file__).resolve().parents[3] / "engines" / "yolo" / "yolo26s.pt"
+# YOLO_TRACK_CONF = Path(__file__).resolve().parents[3] / "engines" / "yolo" / "tracktrack_reid.yaml"
+# YOLO_TRACK_CONF = Path(__file__).resolve().parents[3] / "engines" / "yolo" / "fasttrack.yaml"
+YOLO_TRACK_CONF = Path(__file__).resolve().parents[3] / "engines" / "yolo" / "botsort.yaml"
+
 # Calibration files
 VISION_DIR = Path(__file__).resolve().parents[0]
 CALIBRATION_PATH = VISION_DIR / "calibration/stereo_calibration.npz"
 HEAD_CAM_CALIBRATION_PATH = VISION_DIR / "calibration/head_camera_calibration.npz"
 
-# Floor-fit priors in rectified camera coordinates; check against camera height.
+# Floor-fit priors in rectified camera coordinates
 GROUND_CAMERA_HEIGHT_RANGE = (0.8, 1.5)  # Perpendicular camera-to-floor distance, m.
 GROUND_MAX_TILT_DEG = 50  # Floor normal versus camera up (-y), allowing camera tilt.
 FLOOR_CLEARENCE = 0.05

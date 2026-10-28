@@ -18,11 +18,11 @@ previous_mode = mode["name"]
 print("Current controller:", previous_mode)
 
 # Enter low-level control
-code, _ = msc.ReleaseMode()
-print("Release return:", code)
-print("Controller after release:", msc.CheckMode())
+# code, _ = msc.ReleaseMode()
+# print("Release return:", code)
+# print("Controller after release:", msc.CheckMode())
 
 # Exit low-level control
-# code, _ = msc.SelectMode("ai")
-# print("Switch return:", code)
-# print("Current mode:", msc.CheckMode())
+code, _ = msc.SelectMode("ai")
+print("Switch return:", code)
+print("Current mode:", msc.CheckMode())

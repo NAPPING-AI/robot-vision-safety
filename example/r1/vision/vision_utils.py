@@ -381,6 +381,40 @@ def draw_ground_wireframe(image, plane, rectification):
                 (10, 46), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
 
+def draw_ground_arrow(image, angle, color, plane, rectification, length_m=1, thickness=2):
+    """Draw a ground-direction arrow in place on a camera image."""
+    if plane is None or not np.isfinite(angle) or length_m <= 0:
+        return image
+
+    normal, offset = plane
+    if abs(normal[1]) < 1e-6:
+        return image
+
+    x = -np.sin(angle) * length_m
+    z = np.cos(angle) * length_m
+    if z <= 0.05:
+        return image  
+
+    y = -(normal[0] * x + normal[2] * z + offset) / normal[1]
+    r = rectification
+    tip = np.array([
+        r.focal_x * x / z + r.center_x,
+        r.focal_y * y / z + r.center_y,
+    ])
+    if not np.isfinite(tip).all():
+        return image
+
+    height, width = image.shape[:2]
+    start = (round(r.center_x), height - 1)
+    end = tuple(round(value) for value in tip)
+
+    visible, start, end = cv2.clipLine((0, 0, width, height), start, end)
+    if visible:
+        cv2.arrowedLine(image, start, end, color, thickness, cv2.LINE_AA, tipLength=0.15)
+
+    return image
+
+
 def put_label(image, text):
     cv2.putText(
         image, text, (10, 24), cv2.FONT_HERSHEY_SIMPLEX,

@@ -11,6 +11,7 @@ from safety_perception import StereoPerception
 from vision_utils import (
     STATUS_HEIGHT,
     colourise_depth,
+    draw_ground_arrow,
     draw_ground_wireframe,
     draw_status,
     put_label,
@@ -110,7 +111,7 @@ def handle_key(key, shield, policy, now):
     return key in (ord("q"), 27)
 
 
-def make_display(frame, now, decision, rectification):
+def make_display(frame, now, command, decision, rectification):
     """Create display for the user to see"""
     depth_view = colourise_depth(frame.depth, frame.reliable)
     rgb_view = frame.left_rectified.copy()
@@ -122,6 +123,22 @@ def make_display(frame, now, decision, rectification):
 
     rgb_view[local_mask] = (0.45 * rgb_view[local_mask] + 0.55 * amber).astype(np.uint8)
     draw_ground_wireframe(rgb_view_2, frame.ground_plane, rectification)
+    
+    draw_ground_arrow(
+        rgb_view_2,
+        angle=decision.command.yaw_rate, 
+        color=(0, 0, 255),
+        plane=frame.ground_plane,
+        rectification=rectification
+    )
+
+    draw_ground_arrow(
+        rgb_view_2,
+        angle=command.yaw_rate, 
+        color=(0, 255, 0),
+        plane=frame.ground_plane,
+        rectification=rectification
+    )
 
     put_label(rgb_view, "RECTIFIED LEFT  |  ORANGE=LOCAL AVOIDANCE")
     put_label(rgb_view_2, "RECTIFIED LEFT  |  WIREFRAME=FITTED FLOOR")
@@ -160,13 +177,14 @@ def main():
             now = time.monotonic()
             perception.update(now)
             now = time.monotonic()  # Include inference time in the freshness check.
-            decision = shield.evaluate(policy.requested(now), perception.latest_snapshot, now)
+            command = policy.requested(now)
+            decision = shield.evaluate(command, perception.latest_snapshot, now)
             motion.apply(decision)
             frame = perception.latest_frame
             if frame is None:
                 show_status_overlay(last_display, f"SAFETY STOP: {decision.reason}")
             else:
-                last_display = make_display(frame, now, decision, perception.rectification)
+                last_display = make_display(frame, now, command, decision, perception.rectification)
                 cv2.imshow(DISPLAY_TITLE, last_display)
             if handle_key(cv2.waitKeyEx(1), shield, policy, time.monotonic()):
                 break
