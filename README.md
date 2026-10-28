@@ -29,7 +29,7 @@ The runtime dependencies are:
 | CUDA, PyCUDA and TensorRT | Running LAS2, the wrapper uses TensorRT's 8.5 binding API |
 | `cyclonedds==0.10.2` | Sending commands through the Unitree SDK |
 
-The setup below assumes the Jetson's native packages are already installed. The Python package declares NumPy, OpenCV and CycloneDDS as dependencies, while CUDA, TensorRT, PyCUDA and the camera decoder come from the Jetson environment. The [backpack setup notes](<documentation/unitree_sdk2_python installation.md>) also cover working in an environment without a usable pip.
+The setup below assumes the Jetson's native packages are already installed. The Python package declares NumPy, OpenCV and CycloneDDS as dependencies, while CUDA, TensorRT, PyCUDA and the camera decoder come from the Jetson environment. The [demo setup notes](<documentation/demo_setup.md>) cover instructions to set up the project on the Unitree R1's backpack.
 
 **NOTE**: On the Napping AI Unitree R1, the project is already set up at `~/demo/FollowDemo/unitree_sdk2_python/`. Before running the scripts in this folder, activate the existing virtual environment:
 
