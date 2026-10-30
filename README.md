@@ -12,8 +12,10 @@ The code is implemented in [`example/r1/vision`](example/r1/vision), which also 
 - [Calibrating the Cameras](#calibrating-the-cameras)
 - [Detecting Obstacles (Perception)](#from-camera-images-to-obstacles)
 - [Safety Layer & Commands](#how-the-safety-layer-chooses-a-command)
+- [Tracking a Target](#tracking-a-target)
 - [Changing the Settings](#changing-the-settings)
 - [Codebase & File Guide](#a-guide-to-the-code)
+- [Future Work](#future-work)
 
 ## Getting started
 
@@ -188,6 +190,35 @@ Among the remaining paths, the score favours staying close to the requested spee
 
 If the chosen path would turn more than 60° over the prediction horizon, the script replaces it with an in-place turn at $\pm$ 1 rad/s.
 
+## Tracking a target (integration with a tracking policy)
+
+The project also includes a demo that integrates the safety layer with a tracking policy. This tracking policy uses YOLO to detects objects in the left-camera image, while BoT-SORT associates detections across frames. The policy follows the first detection matching `TRACKED_LABEL`, currently set to `"stop sign"`, using stereo depth at the bounding-box centre to estimate its distance and bearing.
+
+From `example/r1/vision`, run:
+
+```bash
+uv run tracking_demo_augmented.py eth10
+```
+
+This also requires the `ultralytics` package and the YOLO weights and tracker configuration referenced by `YOLO_CKPT_PATH` and `YOLO_TRACK_CONF` in `config.py`. Detection runs in a background thread with `imgsz=1280`, which helps the policy track smaller objects that are further away.
+
+### Choosing an action
+
+With valid target depth, the policy requests an in-place turn at $\pm$ 1 rad/s when the target bearing exceeds 30°. Otherwise, it requests forward motion at 0.3 m/s until the estimated target distance is within 0.65 m, where it stops. These requests pass through the safety layer before reaching the locomotion controller.
+
+When safety changes a forward request into an avoidance turn, the demo shifts a virtual target sideways in the image towards that turn. Tracking then follows this augmented target, giving avoidance some influence over subsequent policy requests instead of immediately steering back towards the real target. The offset gradually decays, although further safety corrections can replace it. 
+
+### Recovering a lost target
+
+If a previously detected target disappears, the policy predicts its image position from the last detection, the latest displacement between detections and the remaining augmentation. A small state machine is then used to attempt recovery:
+
+| State | Behaviour |
+| --- | --- |
+| `FORWARD` | Follow the predicted target for a configured 3 s when its bearing starts within $\pm$ 30° |
+| `FIRST_SCAN` | Turn in place towards the predicted target's side of the image for 2 s |
+| `SECOND_SCAN` | Turn in place towards the opposite side for another 2 s |
+| `FINISHED` | Stop and discard the predicted target until another matching detection appears |
+
 ## Changing the settings
 
 Most perception settings are in `config.py`. These are the current defaults:
@@ -211,7 +242,7 @@ The footprint, path sampling and scoring settings live in `SafetyConfig` in `saf
 
 ## A guide to the code
 
-These files are all in `example/r1/vision`. The first four can be run directly, and the others are modules that they import.
+These files are all in `example/r1/vision`. The calibration scripts, viewers and demos can be run directly; the remaining files are modules they import.
 
 | File | What it does | How to use it |
 | --- | --- | --- |
@@ -219,6 +250,10 @@ These files are all in `example/r1/vision`. The first four can be run directly, 
 | `2_depth.py` | Shows depth calculated with OpenCV SGBM | `python 2_depth.py` |
 | `3_depth_engine.py` | Shows LAS2 disparity and filtered depth, with click-to-inspect distances | `python 3_depth_engine.py` |
 | `safety_demo_keyboard.py` | Reads keys, calls the safety layer, sends motion commands and draws the live display | `python safety_demo_keyboard.py eth10` |
+| `tracking.py` | Shows YOLO detections alongside stereo disparity and depth, without sending motion commands | `uv run tracking.py` |
+| `tracking_demo.py` | Runs the basic target-following policy through the safety layer | `uv run tracking_demo.py eth10` |
+| `tracking_demo_augmented.py` | Adds an augmented target for obstacle avoidance and a recovery state machine for lost detections | `uv run tracking_demo_augmented.py eth10` |
+| `tracking_utils.py` | Runs YOLO tracking in a background thread and provides detection, plotting and target-geometry helpers | Import `Tracker`, `TrackingData` and `Box` |
 | `safety_perception.py` | Runs the cameras and depth pipeline, returning obstacle points and their timestamp | Import `StereoPerception` |
 | `safety_layer.py` | Defines commands, perception states and decisions; predicts paths and chooses a command | Import `FailClosedVelocityShield` and its dataclasses |
 | `camera_utils.py` | Starts the GStreamer decoder and keeps the latest timestamped camera frame | Import `Camera` |
@@ -245,6 +280,16 @@ The other useful files are:
 **`no collision-free local trajectory`:** look at the orange points, especially anything within 0.33 m of the camera origin. Even one point too close can block all forward paths. Points farther away may also leave no room for the sampled arcs.
 
 **Commands appear but the robot barely moves:** through testing, the robot seems to need a speed of at least 0.3 to move reliably, and a turn speed of at least 1 to turn in place.
+
+## Future work
+
+**More robust depth under bright lighting:** Bright lights in the camera view can make disparity extremely noisy, leaving the safety layer with unreliable obstacle measurements. Some ways to improve this could be to do some image preprocessing, or explore alternative depth pipelines that are more robust to these conditions.
+
+**Original camera streams and calibration parameters:** Unitree recently made available the original streams and intrinsic/extrinsic parameters through Unitree's [R1 video service](https://support.unitree.com/home/en/R1_developer/video_service). It would be a good idea to try these out, then compare the results with the current decoded streams and calibration.
+
+**More rigourous testing and validation of parameters and models:** Validate camera intrinsics, stereo alignment, depth maps and obstacle responses against measured references in a controlled environment. Repeated trials would help separate calibration errors, lighting effects and motion-related failures.
+
+**Integration with low-level policies:** Right now the current demos only integrate the safety layer with the existing on-board locomotion policy. It would be useful to see how it would be able to integrate with low-level policies as well.
 
 ## Credits and license
 
