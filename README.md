@@ -7,6 +7,15 @@ together, using key presses as the source of velocity commands.
 
 The code is implemented in [`example/r1/vision`](example/r1/vision), which also includes scripts for stereo calibration and depth inspection. The rest of the repository contains the Unitree SDK2 Python package used to communicate with the robot.
 
+**NOTE**: On the Napping AI Unitree R1, the project is already set up at `~/demo/FollowDemo/unitree_sdk2_python/`. Before running the scripts in this folder, activate the existing virtual environment:
+
+```bash
+cd ~/demo/FollowDemo/unitree_sdk2_python/
+source .venv/bin/activate
+
+# afterwards, run scripts with `uv run [filename].py`
+```
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Calibrating the Cameras](#calibrating-the-cameras)
@@ -32,15 +41,6 @@ The runtime dependencies are:
 | `cyclonedds==0.10.2` | Sending commands through the Unitree SDK |
 
 The setup below assumes the Jetson's native packages are already installed. The Python package declares NumPy, OpenCV and CycloneDDS as dependencies, while CUDA, TensorRT, PyCUDA and the camera decoder come from the Jetson environment. The [demo setup notes](<documentation/demo_setup.md>) cover instructions to set up the project on the Unitree R1's backpack.
-
-**NOTE**: On the Napping AI Unitree R1, the project is already set up at `~/demo/FollowDemo/unitree_sdk2_python/`. Before running the scripts in this folder, activate the existing virtual environment:
-
-```bash
-cd ~/demo/FollowDemo/unitree_sdk2_python/
-source .venv/bin/activate
-
-# afterwards, run scripts with `uv run [filename].py`
-```
 
 ### Depth engine
 
