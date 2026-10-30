@@ -21,7 +21,7 @@ source .venv/bin/activate
 - [Calibrating the Cameras](#calibrating-the-cameras)
 - [Detecting Obstacles (Perception)](#from-camera-images-to-obstacles)
 - [Safety Layer & Commands](#how-the-safety-layer-chooses-a-command)
-- [Tracking a Target](#tracking-a-target)
+- [Integration with a Tracking Policy](#integration-with-a-tracking-policy)
 - [Changing the Settings](#changing-the-settings)
 - [Codebase & File Guide](#a-guide-to-the-code)
 - [Future Work](#future-work)
@@ -190,7 +190,7 @@ Among the remaining paths, the score favours staying close to the requested spee
 
 If the chosen path would turn more than 60° over the prediction horizon, the script replaces it with an in-place turn at $\pm$ 1 rad/s.
 
-## Tracking a target (integration with a tracking policy)
+## Integration with a tracking policy
 
 The project also includes a demo that integrates the safety layer with a tracking policy. This tracking policy uses YOLO to detects objects in the left-camera image, while BoT-SORT associates detections across frames. The policy follows the first detection matching `TRACKED_LABEL`, currently set to `"stop sign"`, using stereo depth at the bounding-box centre to estimate its distance and bearing.
 
